@@ -1,0 +1,109 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.title {
+    text-align: center;
+    font-size: 3rem;
+    padding: .8em 0 .4em;
+}
+
+.gallery--center {
+    display: flex;
+    justify-content: center;
+}
+
+.gallery {
+    width: 95%;
+    display: grid;
+    justify-content: center;
+    padding: 1em 0 3em;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 350px;
+    grid-template-areas:
+    "img1 img1 img2 img3"
+    "img1 img1 img4 img4"
+    "img5 img6 img6 img7"
+    "img5 img8 img8 img7";
+    gap: .8em;
+}
+.gallery-center {
+    display: flex;
+    justify-content: center;
+}
+
+.gallery__picture {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    transition: .6s;
+    border-radius: 20px;
+}
+
+.gallery__picture--g1 { grid-area: img1; }
+.gallery__picture--g2 { grid-area: img2; }
+.gallery__picture--g3 { grid-area: img3; }
+.gallery__picture--g4 { grid-area: img4; }
+.gallery__picture--g5 { grid-area: img5; }
+.gallery__picture--g6 { grid-area: img6; }
+.gallery__picture--g7 { grid-area: img7; }
+.gallery__picture--g8 { grid-area: img8; }
+
+.gallery__picture::before {
+    display: flex;
+    content: "Hola Mundo";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(235, 0, 0, 0.7);
+    transform: translate(-100%);
+    color: white;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    transition: .5s;
+}
+
+.gallery__picture:hover::before {
+    transform: translate(0);
+}
+
+.gallery__picture:hover {
+    transform: scale(1.02);
+    z-index: 10;
+}
+
+.gallery__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@media screen and (max-width: 768px) {
+    .title {
+        font-size: 2rem;
+        padding: .8em 0 .4em;
+    }
+
+    .gallery {
+        padding: .5em 0 1.5em;
+        grid-auto-rows: 140px;
+    }
+
+    .gallery__picture {
+        border-radius: 5px;
+    }
+
+    .gallery__picture::before {
+        font-size: .8em;
+    }
+}
